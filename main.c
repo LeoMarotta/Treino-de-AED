@@ -31,6 +31,7 @@ void listar(lista *topo){
     }else{
         do{
             printf("%s/%d->", aux->nome, aux->fone);
+            aux = aux->prox;
         }while(aux!=NULL);
     }
 }
@@ -48,7 +49,7 @@ int main(int argc, char** argv) {
     int opcao, fone;
     char nome[50];
     do{
-        printf("---AGENDA---\n1-Inserir\n2-Listar\n3-Remover\n4-Buscar\n5-Sair\nOpcao:");
+        printf("\n---AGENDA---\n1-Inserir\n2-Listar\n3-Remover\n4-Buscar\n5-Sair\nOpcao:");
         scanf("%d", &opcao);
         switch(opcao){
             case 1:
@@ -56,7 +57,7 @@ int main(int argc, char** argv) {
                 scanf("%s", nome);
                 printf("\nDigite o telefone do contato que deseja inserir.\n");
                 scanf("%d", &fone);
-                inserir(&topo, nome[50], fone);
+                inserir(&topo, nome, fone);
                 break;
             case 2:
                 listar(topo);
@@ -68,7 +69,7 @@ int main(int argc, char** argv) {
             //    buscar();
             //    break;
         }
-    }while(opcao!=0);
+    }while(opcao!=5);
     
     return (EXIT_SUCCESS);
 }
