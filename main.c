@@ -8,7 +8,7 @@ typedef struct ListaX{
     struct lista *prox;
 }lista;
 
-void inserir(lista **topo, char nomes[50], char fones){
+void inserir(lista **topo, char nomes[50], int fones){
     
     lista *listaS;
     listaS = malloc(sizeof(lista));
@@ -49,13 +49,14 @@ int main(int argc, char** argv) {
     int opcao, fone;
     char nome[50];
     do{
-        printf("\n---AGENDA---\n1-Inserir\n2-Listar\n3-Remover\n4-Buscar\n5-Sair\nOpcao:");
+        printf("\n\n---AGENDA---\n1-Inserir\n2-Listar\n3-Remover\n4-Buscar\n5-Sair\nOpcao:");
         scanf("%d", &opcao);
+        printf("\n");
         switch(opcao){
             case 1:
-                printf("Digite nome que deseja inserir.\n");
+                printf("Digite nome que deseja inserir:");
                 scanf("%s", nome);
-                printf("\nDigite o telefone do contato que deseja inserir.\n");
+                printf("\nDigite o telefone do contato que deseja inserir:");
                 scanf("%d", &fone);
                 inserir(&topo, nome, fone);
                 break;
