@@ -40,13 +40,28 @@ void listar(lista *topo){
 //   
 //}
 //
-//void buscar(){
-//    
-//}
+
+void buscar(lista *topo, char nomes[50]){
+    printf("quack");
+    lista *aux;
+    aux = topo;
+    if(aux==NULL){
+        printf("quack1");
+    }else{
+        do{
+            printf("quack2");
+            if(strcmp(aux->nome,nomes)==0){
+            printf("O telefone de %s: %d\n", aux->nome, aux->fone);
+            }
+            printf("quack3");
+            aux = aux->prox;
+        }while(aux!=NULL);
+    }
+}
 
 int main(int argc, char** argv) {
     lista *topo = NULL;
-    int opcao, fone;
+    int opcao=0, fone=0;
     char nome[50];
     do{
         printf("\n\n---AGENDA---\n1-Inserir\n2-Listar\n3-Remover\n4-Buscar\n5-Sair\nOpcao:");
@@ -66,12 +81,15 @@ int main(int argc, char** argv) {
             //case 3:
             //    remover();
             //    break;
-            //case 4:
-            //    buscar();
-            //    break;
+            case 4:
+                printf("Digite nome que deseja buscar:");
+                scanf("%s", nome);
+                buscar(&topo, nome);
+                break;
         }
     }while(opcao!=5);
     
+    free(topo);
+    
     return (EXIT_SUCCESS);
 }
-
