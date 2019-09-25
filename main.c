@@ -83,7 +83,8 @@ int main(int argc, char** argv) {
             //    break;
             case 4:
                 printf("Digite nome que deseja buscar:");
-                scanf("%s", nome);
+                scanf("%s", &nome);
+                printf("quack");
                 buscar(&topo, nome);
                 break;
         }
